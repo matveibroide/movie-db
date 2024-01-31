@@ -1,0 +1,11 @@
+
+.movie-container {
+    text-align: center;
+    background-color: white;
+    width: 67%;
+    margin: 0 auto;
+    padding: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5% 5%;
+}
