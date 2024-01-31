@@ -6,10 +6,10 @@ const MoviesContainer = ({ movies }) => {
     movies === null
       ? "There is no data"
       : movies.map((el, i) => {
-          const { id, original_title: title, overview } = el;
+          const { id, original_title: title, overview,poster_path:img } = el;
           return (
             <li key={id} id={id}>
-              <MovieCard title={title} overview={overview}/>
+              <MovieCard img = {img}  title={title} overview={overview}/>
             </li>
           );
         });

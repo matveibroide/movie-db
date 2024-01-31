@@ -1,5 +1,6 @@
 
 .movie-container {
+    list-style: none;
     text-align: center;
     background-color: white;
     width: 67%;

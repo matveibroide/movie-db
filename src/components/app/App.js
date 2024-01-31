@@ -6,16 +6,17 @@ import { useState } from "react";
 import { Spin } from "antd";
 
 function App() {
-
-  const [movies,setMovies] = useState(null)
-  const [isLoading,setIsLoading] = useState(false)
-
-
+  const [movies, setMovies] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className="App">
-      <Header setIsLoading = {setIsLoading} setMovies = {setMovies}/>
-      { isLoading ? <Spin size="l"/> : <MoviesContainer movies = {movies} />}
+      <Header setIsLoading={setIsLoading} setMovies={setMovies} />
+      {isLoading ? (
+        <Spin className="spin" />
+      ) : (
+        <MoviesContainer movies={movies} />
+      )}
     </div>
   );
 }
