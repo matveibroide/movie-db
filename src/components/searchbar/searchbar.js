@@ -1,34 +1,36 @@
 import { useState } from "react";
 import MovieDbService from "../../services/movieDbService";
-import './searchbar.css'
+import "./searchbar.css";
 
-const Searchbar = ({ setMovies,setIsLoading }) => {
+const Searchbar = ({ setMovies, setIsLoading, setActiveQuery }) => {
   const movieService = new MovieDbService();
 
   function debounce(cb, delay) {
     let timeout;
 
-    return (...args) => {
+    return (e) => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-        cb(...args);
+        cb(e.target.value);
       }, delay);
     };
   }
 
-  const onChange = (e) => {
-    setIsLoading(true)
-    movieService.getMovie(e.target.value).then((res) => {
-      setMovies(res)
-      setIsLoading(false)
+  const onChange = (query) => {
+    //sent data to the App
+    setActiveQuery(query)
+    setIsLoading(true);
+    movieService.getMovie(query).then((res) => {
+      setMovies(res);
+      setIsLoading(false);
     });
-    
   };
 
   const updateInputValue = debounce(onChange, 500);
 
   return (
-    <input className="searchbar"
+    <input
+      className="searchbar"
       onChange={updateInputValue}
       placeholder="Type to search..."
       type="text"

@@ -6,16 +6,19 @@ import { useState } from "react";
 import { Spin } from "antd";
 
 function App() {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeQuery,setActiveQuery] = useState('')
+
+  const height = movies.length <= 0 ? '100vh' : 'fit-content'
 
   return (
-    <div className="App">
-      <Header setIsLoading={setIsLoading} setMovies={setMovies} />
+    <div style={{height:`${height}`}} className="App">
+      <Header setActiveQuery = {setActiveQuery} setIsLoading={setIsLoading} setMovies={setMovies} />
       {isLoading ? (
         <Spin className="spin" />
       ) : (
-        <MoviesContainer movies={movies} />
+        <MoviesContainer setMovies = {setMovies} activeQuery = {activeQuery} movies={movies} />
       )}
     </div>
   );

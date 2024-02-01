@@ -21,10 +21,10 @@ export default class MovieDbService {
     return await res.json();
   }
 
-  async getMovie(query) {
+  async getMovie(query,pageNumber = 1) {
     const updatedQuery = query.replaceAll(" ", "%20");
     const res = await this.getResource(
-      `${this._apiMovie}?query=${updatedQuery}&include_adult=false&language=en-US&page=1`
+      `${this._apiMovie}?query=${updatedQuery}&include_adult=false&language=en-US&page=${pageNumber}`
     );
     return res.results;
   }

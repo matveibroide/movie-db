@@ -1,5 +1,6 @@
 
 .movie-container {
+    height: fit-content;
     list-style: none;
     text-align: center;
     background-color: white;
@@ -9,4 +10,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5% 5%;
+}
+
+.movie-container__pagination {
+    height: 50px;
+    grid-column: 1/-1;
 }
