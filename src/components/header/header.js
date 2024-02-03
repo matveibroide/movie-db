@@ -1,10 +1,16 @@
 import "./header.css";
 import Searchbar from "../searchbar/searchbar";
+import SearchFilters from "../search-filters/search-filters";
 
-const Header = ({ setMovies, setIsLoading,setActiveQuery }) => {
+const Header = ({ setMovies, setIsLoading, setActiveQuery }) => {
   return (
     <header>
-      <Searchbar setActiveQuery = {setActiveQuery} setIsLoading={setIsLoading} setMovies={setMovies} />
+      <SearchFilters/>
+      <Searchbar
+        setActiveQuery={setActiveQuery}
+        setIsLoading={setIsLoading}
+        setMovies={setMovies}
+      />
     </header>
   );
 };

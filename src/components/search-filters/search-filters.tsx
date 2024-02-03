@@ -1,4 +1,4 @@
-
+import './search-filters.css'
 const SearchFilters = () => {
 
     return (
@@ -7,3 +7,5 @@ const SearchFilters = () => {
         </div>
     )
 }
+
+export default SearchFilters;

@@ -17,10 +17,16 @@
 
 img {
     width: 183px;
-    height: 281px;
+    height: 279px;
 }
 
 .movie-card__description {
     text-align: left;
     
+}
+
+@media(max-width:421px) {
+    .movie-card {
+        background-color: red;
+    }
 }

@@ -21,7 +21,7 @@ const Searchbar = ({ setMovies, setIsLoading, setActiveQuery }) => {
     setActiveQuery(query)
     setIsLoading(true);
     movieService.getMovie(query).then((res) => {
-      setMovies(res);
+      setMovies(res.slice(0,6));
       setIsLoading(false);
     });
   };

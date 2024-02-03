@@ -8,18 +8,33 @@ import { Spin } from "antd";
 function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeQuery,setActiveQuery] = useState('')
+  const [activeQuery, setActiveQuery] = useState("");
 
-  const height = movies.length <= 0 ? '100vh' : 'fit-content'
+  const height = movies.length <= 0 ? "100vh" : "auto";
+  const justifyContent = isLoading ? "center" : "flex-start";
+
+  const content = isLoading ? (
+    <Spin className="spin" />
+  ) : (
+    <MoviesContainer
+      setMovies={setMovies}
+      activeQuery={activeQuery}
+      movies={movies}
+    />
+  );
 
   return (
-    <div style={{height:`${height}`}} className="App">
-      <Header setActiveQuery = {setActiveQuery} setIsLoading={setIsLoading} setMovies={setMovies} />
-      {isLoading ? (
-        <Spin className="spin" />
-      ) : (
-        <MoviesContainer setMovies = {setMovies} activeQuery = {activeQuery} movies={movies} />
-      )}
+    <div
+      style={{ height: `${height}`, justifyContent: `${justifyContent}` }}
+      className="App"
+    >
+      <Header
+        setActiveQuery={setActiveQuery}
+        setIsLoading={setIsLoading}
+        setMovies={setMovies}
+      />
+
+      {content}
     </div>
   );
 }

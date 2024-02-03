@@ -21,7 +21,7 @@ export default class MovieDbService {
     return await res.json();
   }
 
-  async getMovie(query,pageNumber = 1) {
+  async getMovie(query, pageNumber = 1) {
     const updatedQuery = query.replaceAll(" ", "%20");
     const res = await this.getResource(
       `${this._apiMovie}?query=${updatedQuery}&include_adult=false&language=en-US&page=${pageNumber}`
