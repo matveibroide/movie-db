@@ -6,8 +6,11 @@ import MovieDbService from "../../services/movieDbService";
 const MoviesContainer = ({ movies, activeQuery, setMovies }) => {
   const movieService = new MovieDbService();
 
-  const style = movies.length <= 0 ? 'movie-container-not-active' : 'movie-container-active';
- 
+  const style =
+    movies.length <= 0
+      ? "movie-container-not-active"
+      : "movie-container-active";
+
   const content =
     movies.length <= 0 ? (
       <span>NO MATCHES FOUND...</span>

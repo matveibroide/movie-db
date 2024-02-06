@@ -3,3 +3,9 @@
     padding: 10px;
     margin: 0 auto;
 }
+
+@media(max-width:420px) {
+    .searchbar {
+        width: 89%;
+    }
+}

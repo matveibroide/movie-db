@@ -26,7 +26,13 @@ img {
 }
 
 @media(max-width:421px) {
-    .movie-card {
-        background-color: red;
+    
+    img {
+        height: 91px;
+        width: 60px;
+    } 
+    
+    .movie-card__details {
+        width: 75%;
     }
 }

@@ -3,10 +3,11 @@ header {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-   max-width: 100%;
+    max-width: 100%;
 }
 
 input {
+    max-width: 100%;
     margin: 0;
     padding: 0;
 }
