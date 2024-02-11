@@ -26,8 +26,15 @@ img {
 }
 
 @media(max-width:421px) {
+
+    .movie-card {
+        width: 93%;
+        margin: 0 auto;
+    }
     
     img {
+        padding-top: 5px;
+        padding-left: 10px;
         height: 91px;
         width: 60px;
     } 

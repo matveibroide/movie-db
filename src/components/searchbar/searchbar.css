@@ -15,5 +15,11 @@
 @media(max-width:420px) {
     .searchbar {
         width: 89%;
+        
+    }
+
+    .searchbar_container {
+        margin: 0 auto;
+        width: 90%;
     }
 }
