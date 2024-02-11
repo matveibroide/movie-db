@@ -3,7 +3,13 @@ import "./movies-container.css";
 import { Pagination } from "antd";
 import MovieDbService from "../../services/movieDbService";
 
-const MoviesContainer = ({ movies, activeQuery, setMovies }) => {
+const MoviesContainer = ({
+  movies,
+  activeQuery,
+  setMovies,
+  sessionId,
+  activeTab,
+}) => {
   const movieService = new MovieDbService();
 
   const style =
@@ -19,7 +25,14 @@ const MoviesContainer = ({ movies, activeQuery, setMovies }) => {
         const { id, original_title: title, overview, poster_path: img } = el;
         return (
           <li key={id} id={id}>
-            <MovieCard img={img} title={title} overview={overview} />
+            <MovieCard
+              activeTab={activeTab}
+              sessionId={sessionId}
+              img={img}
+              title={title}
+              overview={overview}
+              id={id}
+            />
           </li>
         );
       })
