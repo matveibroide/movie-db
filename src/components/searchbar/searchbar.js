@@ -38,7 +38,7 @@ const Searchbar = ({ setMovies, setIsLoading, setActiveQuery }) => {
   const updateInputValue = debounce(onChange, 500);
 
   return (
-    <div>
+    <div className="searchbar_container">
       {isError ? <Alert type="error" message={errorMessage} /> : null}
       <input
         className="searchbar"

@@ -55,7 +55,7 @@ const MoviesContainer = ({
   return (
     <ul className={`${style}`}>
       {content}
-      {pagination}
+      {activeTab === 'search' ? pagination : null}
     </ul>
   );
 };

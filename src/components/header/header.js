@@ -6,7 +6,7 @@ import { getActiveElement } from "@testing-library/user-event/dist/utils";
 const Header = ({ setMovies, setIsLoading, setActiveQuery, getTab, activeTab }) => {
   return (
     <header>
-      <SearchFilters getTab = {getTab}/>
+      <SearchFilters activeTab = {activeTab} getTab = {getTab}/>
      {activeTab === 'search' ?  <Searchbar
         setActiveQuery={setActiveQuery}
         setIsLoading={setIsLoading}
