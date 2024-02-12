@@ -5,7 +5,6 @@ export default class MovieDbService {
   _apiToken =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4N2UyMGFlNDVlNDBlZDFmM2Q0Mjc1MGIxZmZiZmE0ZSIsInN1YiI6IjY0YjgxNTVmYjFmNjhkMDE0NDZhMjM1YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W5ELXuv7y-jDQlslYva6dqOqJwNmLDvcc_pJF-uLrig";
 
-
   createGuestSession = async () => {
     const response = await fetch(
       "https://api.themoviedb.org/3/authentication/guest_session/new",
@@ -50,20 +49,22 @@ export default class MovieDbService {
     return res.results;
   }
 
-  async rateMovie(id, sessionId = "",value) {
-    console.log(id)
+  async rateMovie(id, sessionId = "", value) {
+    console.log(id);
     console.log(sessionId);
-    
+
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${id}/rating?guest_session_id=${sessionId}`,
-      { method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json;charset=utf-8",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4N2UyMGFlNDVlNDBlZDFmM2Q0Mjc1MGIxZmZiZmE0ZSIsInN1YiI6IjY0YjgxNTVmYjFmNjhkMDE0NDZhMjM1YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W5ELXuv7y-jDQlslYva6dqOqJwNmLDvcc_pJF-uLrig",
-      },
-      body: '{"value":8.5}',}
+      {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4N2UyMGFlNDVlNDBlZDFmM2Q0Mjc1MGIxZmZiZmE0ZSIsInN1YiI6IjY0YjgxNTVmYjFmNjhkMDE0NDZhMjM1YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W5ELXuv7y-jDQlslYva6dqOqJwNmLDvcc_pJF-uLrig",
+        },
+        body: '{"value":8.5}',
+      }
     );
 
     if (!res.ok) {
@@ -84,4 +85,24 @@ export default class MovieDbService {
 
     return res.json();
   };
+
+  async getGenres() {
+    const res = await fetch(
+      "https://api.themoviedb.org/3/genre/movie/list?language=en",
+      {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4N2UyMGFlNDVlNDBlZDFmM2Q0Mjc1MGIxZmZiZmE0ZSIsInN1YiI6IjY0YjgxNTVmYjFmNjhkMDE0NDZhMjM1YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.W5ELXuv7y-jDQlslYva6dqOqJwNmLDvcc_pJF-uLrig",
+          accept: "application/json",
+        },
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch genres, received ${res.status}`);
+    } else {
+      return res.json();
+    }
+  }
 }

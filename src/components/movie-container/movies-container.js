@@ -1,4 +1,5 @@
 import MovieCard from "../movie-card/movie-card";
+import { useContext } from "react";
 import "./movies-container.css";
 import { Pagination } from "antd";
 import MovieDbService from "../../services/movieDbService";
@@ -22,10 +23,11 @@ const MoviesContainer = ({
       <span>NO MATCHES FOUND...</span>
     ) : (
       movies.map((el, i) => {
-        const { id, original_title: title, overview, poster_path: img } = el;
+        const { id, original_title: title, overview, poster_path: img, genre_ids } = el;
         return (
           <li key={id} id={id}>
             <MovieCard
+              genresIds = {genre_ids}
               activeTab={activeTab}
               sessionId={sessionId}
               img={img}
@@ -52,6 +54,8 @@ const MoviesContainer = ({
         total={50}
       />
     );
+
+    
   return (
     <ul className={`${style}`}>
       {content}
