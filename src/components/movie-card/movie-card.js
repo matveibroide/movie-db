@@ -23,13 +23,11 @@ const MovieCard = ({
   const { rateMovie } = movieDbService;
 
   const handleRatingChange = (value) => {
-    console.log("change happened");
     setRating(value);
     localStorage.setItem(`${id}`, value);
     rateMovie(id, sessionId, value)
       .then((response) => {
         setIsError(false);
-        console.log(response);
       })
       .catch((e) => {
         setIsError(true);
@@ -39,7 +37,6 @@ const MovieCard = ({
 
   useEffect(() => {
     if (localStorage.getItem(`${id}`) != null) {
-      console.log(localStorage.getItem(`${id}`));
       setRating(+localStorage.getItem(`${id}`));
     }
   }, []);
@@ -58,7 +55,6 @@ const MovieCard = ({
     color = "#66E900";
   }
 
-  console.log("value:", storageRating);
   const imgLink = `https://image.tmdb.org/t/p/original${img}`;
 
   const allGenres = useContext(GenresContext);

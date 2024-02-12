@@ -50,9 +50,6 @@ export default class MovieDbService {
   }
 
   async rateMovie(id, sessionId = "", value) {
-    console.log(id);
-    console.log(sessionId);
-
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${id}/rating?guest_session_id=${sessionId}`,
       {
